@@ -1,0 +1,1104 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>The Money Therapist — Olubunmi Samuel-Adeyemi</title>
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,600;1,400;1,500&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet" />
+<style>
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+  :root {
+    --forest: #1a4a2e;
+    --forest-mid: #2d6b46;
+    --forest-light: #4a9665;
+    --sage: #e8f0e9;
+    --sage-mid: #c8dcc9;
+    --gold: #c5973a;
+    --gold-light: #e4b85c;
+    --gold-pale: #fdf6e3;
+    --gold-muted: #7a5c1e;
+    --cream: #faf7f0;
+    --warm-white: #fffef9;
+    --text-dark: #1a2218;
+    --text-mid: #3d5240;
+    --text-light: #6b8270;
+    --border-soft: rgba(26,74,46,0.12);
+    --border-gold: rgba(197,151,58,0.25);
+  }
+
+  html { scroll-behavior: smooth; }
+
+  body {
+    font-family: 'DM Sans', sans-serif;
+    background: var(--cream);
+    color: var(--text-dark);
+    line-height: 1.7;
+    overflow-x: hidden;
+  }
+
+  /* ── NAV ── */
+  nav {
+    position: fixed;
+    top: 0; left: 0; right: 0;
+    z-index: 100;
+    background: rgba(250,247,240,0.92);
+    backdrop-filter: blur(12px);
+    border-bottom: 1px solid var(--border-soft);
+    padding: 0 2rem;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    height: 64px;
+  }
+  .nav-logo {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.1rem;
+    color: var(--forest);
+    text-decoration: none;
+    letter-spacing: 0.01em;
+  }
+  .nav-logo span { color: var(--gold); }
+  .nav-links { display: flex; gap: 2rem; list-style: none; }
+  .nav-links a {
+    font-size: 0.85rem;
+    font-weight: 500;
+    color: var(--text-mid);
+    text-decoration: none;
+    letter-spacing: 0.04em;
+    text-transform: uppercase;
+    transition: color 0.2s;
+  }
+  .nav-links a:hover { color: var(--forest); }
+  .nav-cta {
+    background: var(--gold);
+    color: #fff;
+    border: none;
+    padding: 0.5rem 1.3rem;
+    border-radius: 100px;
+    font-size: 0.85rem;
+    font-weight: 500;
+    cursor: pointer;
+    text-decoration: none;
+    transition: background 0.2s;
+  }
+  .nav-cta:hover { background: var(--gold-muted); }
+
+  /* ── HERO ── */
+  .hero {
+    min-height: 100vh;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    align-items: center;
+    padding-top: 64px;
+    background: var(--warm-white);
+    position: relative;
+    overflow: hidden;
+  }
+  .hero::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background:
+      radial-gradient(ellipse 60% 70% at 70% 50%, rgba(197,151,58,0.06) 0%, transparent 70%),
+      radial-gradient(ellipse 50% 60% at 10% 80%, rgba(26,74,46,0.05) 0%, transparent 60%);
+    pointer-events: none;
+  }
+  .hero-text {
+    padding: 5rem 4rem 5rem 8%;
+    position: relative;
+  }
+  .hero-eyebrow {
+    font-size: 0.75rem;
+    font-weight: 500;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: var(--gold);
+    margin-bottom: 1.5rem;
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+  }
+  .hero-eyebrow::before {
+    content: '';
+    display: block;
+    width: 32px;
+    height: 1px;
+    background: var(--gold);
+  }
+  .hero h1 {
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(2.4rem, 4vw, 3.6rem);
+    font-weight: 500;
+    line-height: 1.2;
+    color: var(--forest);
+    margin-bottom: 1.5rem;
+  }
+  .hero h1 em {
+    font-style: italic;
+    color: var(--gold);
+  }
+  .hero-sub {
+    font-size: 1.05rem;
+    color: var(--text-mid);
+    max-width: 420px;
+    margin-bottom: 2.5rem;
+    line-height: 1.8;
+  }
+  .hero-actions { display: flex; gap: 1rem; flex-wrap: wrap; }
+  .btn-primary {
+    background: var(--forest);
+    color: #fff;
+    padding: 0.85rem 2rem;
+    border-radius: 100px;
+    text-decoration: none;
+    font-size: 0.9rem;
+    font-weight: 500;
+    transition: background 0.2s, transform 0.15s;
+    display: inline-block;
+  }
+  .btn-primary:hover { background: var(--forest-mid); transform: translateY(-1px); }
+  .btn-outline {
+    border: 1.5px solid var(--gold);
+    color: var(--gold-muted);
+    padding: 0.85rem 2rem;
+    border-radius: 100px;
+    text-decoration: none;
+    font-size: 0.9rem;
+    font-weight: 500;
+    transition: all 0.2s;
+    display: inline-block;
+  }
+  .btn-outline:hover { background: var(--gold-pale); transform: translateY(-1px); }
+
+  .hero-visual {
+    height: 100vh;
+    background: var(--forest);
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 3rem;
+  }
+  .hero-visual::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background:
+      radial-gradient(ellipse 80% 60% at 30% 40%, rgba(74,150,101,0.3) 0%, transparent 60%),
+      radial-gradient(ellipse 50% 50% at 80% 70%, rgba(197,151,58,0.2) 0%, transparent 50%);
+  }
+  .hero-card {
+    position: relative;
+    z-index: 1;
+    background: rgba(255,255,255,0.07);
+    border: 1px solid rgba(255,255,255,0.15);
+    border-radius: 20px;
+    padding: 2.5rem;
+    max-width: 380px;
+    width: 100%;
+  }
+  .hero-card-quote {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.35rem;
+    font-style: italic;
+    color: rgba(255,255,255,0.92);
+    line-height: 1.6;
+    margin-bottom: 2rem;
+  }
+  .hero-card-attr {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+  }
+  .avatar {
+    width: 48px; height: 48px;
+    border-radius: 50%;
+    background: linear-gradient(135deg, var(--gold-light), var(--gold));
+    display: flex; align-items: center; justify-content: center;
+    font-family: 'Playfair Display', serif;
+    font-size: 1.1rem;
+    color: #fff;
+    font-weight: 600;
+    flex-shrink: 0;
+  }
+  .attr-text p:first-child {
+    font-size: 0.9rem;
+    font-weight: 500;
+    color: #fff;
+  }
+  .attr-text p:last-child {
+    font-size: 0.8rem;
+    color: rgba(255,255,255,0.55);
+  }
+  .hero-stats {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1rem;
+    margin-top: 2rem;
+    padding-top: 2rem;
+    border-top: 1px solid rgba(255,255,255,0.1);
+  }
+  .stat-item {}
+  .stat-num {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.8rem;
+    font-weight: 500;
+    color: var(--gold-light);
+  }
+  .stat-label {
+    font-size: 0.78rem;
+    color: rgba(255,255,255,0.5);
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+  }
+
+  /* ── SECTION SHARED ── */
+  section { padding: 7rem 8%; }
+  .section-tag {
+    font-size: 0.72rem;
+    font-weight: 500;
+    letter-spacing: 0.16em;
+    text-transform: uppercase;
+    color: var(--gold);
+    margin-bottom: 1rem;
+  }
+  .section-title {
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(1.9rem, 3vw, 2.6rem);
+    font-weight: 500;
+    color: var(--forest);
+    line-height: 1.3;
+    max-width: 560px;
+    margin-bottom: 1.25rem;
+  }
+  .section-lead {
+    font-size: 1rem;
+    color: var(--text-light);
+    max-width: 540px;
+    margin-bottom: 4rem;
+    line-height: 1.85;
+  }
+
+  /* ── INTRO / WHO THIS IS FOR ── */
+  .intro { background: var(--sage); }
+  .intro-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    gap: 1.5rem;
+    margin-top: 3rem;
+  }
+  .intro-card {
+    background: #fff;
+    border-radius: 16px;
+    padding: 2rem;
+    border-left: 3px solid var(--gold);
+    transition: transform 0.2s;
+  }
+  .intro-card:hover { transform: translateY(-3px); }
+  .intro-card-icon {
+    width: 40px; height: 40px;
+    border-radius: 10px;
+    background: var(--gold-pale);
+    display: flex; align-items: center; justify-content: center;
+    margin-bottom: 1.25rem;
+    font-size: 1.2rem;
+  }
+  .intro-card h3 {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.05rem;
+    font-weight: 500;
+    color: var(--forest);
+    margin-bottom: 0.6rem;
+  }
+  .intro-card p {
+    font-size: 0.88rem;
+    color: var(--text-light);
+    line-height: 1.75;
+  }
+
+  /* ── SERVICES ── */
+  .services { background: var(--warm-white); }
+  .service-block {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 0;
+    border-radius: 20px;
+    overflow: hidden;
+    margin-bottom: 3rem;
+    border: 1px solid var(--border-soft);
+    transition: box-shadow 0.25s;
+  }
+  .service-block:hover { box-shadow: 0 8px 40px rgba(26,74,46,0.08); }
+  .service-block.reverse { direction: rtl; }
+  .service-block.reverse > * { direction: ltr; }
+  .service-panel {
+    padding: 3.5rem;
+  }
+  .service-panel-main { background: #fff; }
+  .service-panel-accent {
+    background: var(--forest);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding: 3.5rem;
+  }
+  .service-block.gold-accent .service-panel-accent { background: var(--gold-pale); border-left: 1px solid var(--border-gold); }
+  .service-num {
+    font-family: 'Playfair Display', serif;
+    font-size: 3.5rem;
+    font-weight: 400;
+    color: var(--sage-mid);
+    line-height: 1;
+    margin-bottom: 1rem;
+  }
+  .service-block.gold-accent .service-num { color: rgba(197,151,58,0.2); }
+  .service-badge {
+    display: inline-block;
+    background: var(--sage);
+    color: var(--forest);
+    font-size: 0.72rem;
+    font-weight: 500;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    padding: 0.3rem 0.8rem;
+    border-radius: 100px;
+    margin-bottom: 1rem;
+  }
+  .service-block.alt .service-badge { background: var(--gold-pale); color: var(--gold-muted); }
+  .service-panel-main h2 {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.7rem;
+    font-weight: 500;
+    color: var(--forest);
+    margin-bottom: 0.5rem;
+  }
+  .service-panel-main .tagline {
+    font-size: 0.88rem;
+    color: var(--gold);
+    font-weight: 500;
+    margin-bottom: 1.5rem;
+    font-style: italic;
+  }
+  .service-checklist { list-style: none; margin-bottom: 2rem; }
+  .service-checklist li {
+    font-size: 0.88rem;
+    color: var(--text-mid);
+    padding: 0.45rem 0;
+    padding-left: 1.5rem;
+    position: relative;
+    border-bottom: 1px solid var(--border-soft);
+    line-height: 1.6;
+  }
+  .service-checklist li:last-child { border-bottom: none; }
+  .service-checklist li::before {
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 0.85rem;
+    width: 6px; height: 6px;
+    border-radius: 50%;
+    background: var(--gold);
+  }
+  .service-link {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    background: var(--forest);
+    color: #fff;
+    text-decoration: none;
+    padding: 0.75rem 1.5rem;
+    border-radius: 100px;
+    font-size: 0.85rem;
+    font-weight: 500;
+    transition: background 0.2s;
+  }
+  .service-link:hover { background: var(--forest-mid); }
+  .service-link.gold { background: var(--gold); }
+  .service-link.gold:hover { background: var(--gold-muted); }
+
+  /* Accent panel content */
+  .accent-quote {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.2rem;
+    font-style: italic;
+    color: rgba(255,255,255,0.85);
+    line-height: 1.7;
+    margin-bottom: 2rem;
+  }
+  .gold-accent .accent-quote { color: var(--forest); }
+  .accent-detail-item {
+    display: flex;
+    align-items: flex-start;
+    gap: 0.75rem;
+    margin-bottom: 0.85rem;
+  }
+  .accent-detail-icon {
+    width: 28px; height: 28px;
+    border-radius: 50%;
+    background: rgba(255,255,255,0.12);
+    display: flex; align-items: center; justify-content: center;
+    font-size: 0.9rem;
+    flex-shrink: 0;
+  }
+  .gold-accent .accent-detail-icon { background: rgba(197,151,58,0.15); }
+  .accent-detail-text {
+    font-size: 0.85rem;
+    color: rgba(255,255,255,0.7);
+    line-height: 1.6;
+    padding-top: 0.2rem;
+  }
+  .gold-accent .accent-detail-text { color: var(--text-mid); }
+
+  /* ── FULL BOUQUET ── */
+  .bouquet { background: var(--forest); position: relative; overflow: hidden; }
+  .bouquet::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background:
+      radial-gradient(ellipse 60% 80% at 10% 50%, rgba(74,150,101,0.2) 0%, transparent 60%),
+      radial-gradient(ellipse 40% 60% at 90% 20%, rgba(197,151,58,0.12) 0%, transparent 50%);
+    pointer-events: none;
+  }
+  .bouquet .section-title { color: #fff; max-width: none; }
+  .bouquet .section-tag { color: var(--gold-light); }
+  .bouquet .section-lead { color: rgba(255,255,255,0.6); max-width: none; }
+  .bouquet-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1.25rem;
+    position: relative;
+    z-index: 1;
+  }
+  .bouquet-card {
+    background: rgba(255,255,255,0.06);
+    border: 1px solid rgba(255,255,255,0.1);
+    border-radius: 16px;
+    padding: 1.75rem;
+    transition: background 0.2s;
+  }
+  .bouquet-card:hover { background: rgba(255,255,255,0.1); }
+  .bouquet-card-icon {
+    width: 36px; height: 36px;
+    background: rgba(197,151,58,0.2);
+    border-radius: 8px;
+    display: flex; align-items: center; justify-content: center;
+    margin-bottom: 1rem;
+    color: var(--gold-light);
+    font-size: 1rem;
+  }
+  .bouquet-card h3 {
+    font-size: 0.92rem;
+    font-weight: 500;
+    color: rgba(255,255,255,0.9);
+    margin-bottom: 0.5rem;
+  }
+  .bouquet-card p {
+    font-size: 0.83rem;
+    color: rgba(255,255,255,0.5);
+    line-height: 1.7;
+  }
+  .bouquet-cta {
+    margin-top: 3rem;
+    display: flex;
+    align-items: center;
+    gap: 1.5rem;
+    flex-wrap: wrap;
+  }
+  .bouquet-cta a {
+    background: var(--gold);
+    color: #fff;
+    text-decoration: none;
+    padding: 0.85rem 2rem;
+    border-radius: 100px;
+    font-size: 0.9rem;
+    font-weight: 500;
+    transition: background 0.2s;
+  }
+  .bouquet-cta a:hover { background: var(--gold-muted); }
+  .bouquet-note { font-size: 0.82rem; color: rgba(255,255,255,0.4); }
+
+  /* ── ABOUT ── */
+  .about { background: var(--cream); }
+  .about-inner {
+    display: grid;
+    grid-template-columns: 1fr 1.4fr;
+    gap: 5rem;
+    align-items: center;
+  }
+  .about-visual {
+    position: relative;
+  }
+  .about-card {
+    background: var(--forest);
+    border-radius: 20px;
+    padding: 3rem;
+    color: #fff;
+    position: relative;
+    overflow: hidden;
+  }
+  .about-card::after {
+    content: '❝';
+    position: absolute;
+    bottom: -1rem;
+    right: 1.5rem;
+    font-size: 8rem;
+    color: rgba(255,255,255,0.04);
+    font-family: serif;
+    line-height: 1;
+  }
+  .about-card-name {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.4rem;
+    font-weight: 500;
+    color: var(--gold-light);
+    margin-bottom: 0.25rem;
+  }
+  .about-card-title { font-size: 0.82rem; color: rgba(255,255,255,0.5); margin-bottom: 2rem; letter-spacing: 0.06em; }
+  .about-card-body { font-size: 0.9rem; color: rgba(255,255,255,0.75); line-height: 1.85; }
+  .about-badges {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+    margin-top: 2rem;
+  }
+  .badge {
+    background: rgba(255,255,255,0.1);
+    color: rgba(255,255,255,0.7);
+    font-size: 0.75rem;
+    padding: 0.3rem 0.75rem;
+    border-radius: 100px;
+    border: 1px solid rgba(255,255,255,0.12);
+  }
+  .about-text .section-lead { margin-bottom: 1.5rem; }
+  .about-highlight {
+    background: var(--sage);
+    border-left: 3px solid var(--gold);
+    padding: 1.25rem 1.5rem;
+    border-radius: 0 12px 12px 0;
+    margin-top: 2rem;
+  }
+  .about-highlight p {
+    font-family: 'Playfair Display', serif;
+    font-style: italic;
+    font-size: 1rem;
+    color: var(--forest);
+    line-height: 1.7;
+  }
+
+  /* ── BLOG LINK ── */
+  .blog-section { background: var(--gold-pale); padding: 5rem 8%; }
+  .blog-inner {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 2rem;
+    flex-wrap: wrap;
+  }
+  .blog-text .section-tag { color: var(--gold-muted); }
+  .blog-text h2 {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.9rem;
+    font-weight: 500;
+    color: var(--forest);
+    margin-bottom: 0.75rem;
+  }
+  .blog-text p { font-size: 0.95rem; color: var(--text-mid); max-width: 480px; line-height: 1.8; }
+  .blog-cta-group { display: flex; gap: 1rem; align-items: center; }
+
+  /* ── DECISION HELPER ── */
+  .decision { background: var(--warm-white); }
+  .decision-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    gap: 0;
+    border: 1px solid var(--border-soft);
+    border-radius: 20px;
+    overflow: hidden;
+  }
+  .decision-col { padding: 2.5rem; border-right: 1px solid var(--border-soft); }
+  .decision-col:last-child { border-right: none; }
+  .decision-col-head {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.15rem;
+    font-weight: 500;
+    color: var(--forest);
+    margin-bottom: 0.5rem;
+  }
+  .decision-col-sub {
+    font-size: 0.78rem;
+    color: var(--gold);
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    font-weight: 500;
+    margin-bottom: 1.5rem;
+  }
+  .decision-pill {
+    display: inline-block;
+    background: var(--sage);
+    color: var(--forest);
+    font-size: 0.78rem;
+    padding: 0.3rem 0.7rem;
+    border-radius: 100px;
+    margin: 0.2rem 0.2rem 0.2rem 0;
+    line-height: 1.5;
+  }
+  .decision-col:nth-child(2) .decision-pill { background: var(--gold-pale); color: var(--gold-muted); }
+  .decision-col:nth-child(3) .decision-pill { background: rgba(26,74,46,0.06); color: var(--forest-mid); }
+  .decision-link {
+    display: block;
+    margin-top: 2rem;
+    font-size: 0.82rem;
+    color: var(--gold);
+    text-decoration: none;
+    font-weight: 500;
+  }
+  .decision-link:hover { text-decoration: underline; }
+
+  /* ── FOOTER ── */
+  footer {
+    background: var(--text-dark);
+    padding: 4rem 8% 2.5rem;
+    color: rgba(255,255,255,0.4);
+  }
+  .footer-top {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    gap: 3rem;
+    margin-bottom: 3rem;
+    flex-wrap: wrap;
+  }
+  .footer-brand p:first-child {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.2rem;
+    color: rgba(255,255,255,0.9);
+    margin-bottom: 0.4rem;
+  }
+  .footer-brand p:last-child { font-size: 0.82rem; max-width: 260px; line-height: 1.7; }
+  .footer-links h4 {
+    font-size: 0.75rem;
+    text-transform: uppercase;
+    letter-spacing: 0.12em;
+    color: var(--gold-light);
+    margin-bottom: 1rem;
+  }
+  .footer-links ul { list-style: none; }
+  .footer-links li { margin-bottom: 0.5rem; }
+  .footer-links a {
+    font-size: 0.85rem;
+    color: rgba(255,255,255,0.45);
+    text-decoration: none;
+    transition: color 0.2s;
+  }
+  .footer-links a:hover { color: rgba(255,255,255,0.8); }
+  .footer-bottom {
+    border-top: 1px solid rgba(255,255,255,0.08);
+    padding-top: 1.5rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 1rem;
+  }
+  .footer-bottom p { font-size: 0.78rem; }
+  .social-links { display: flex; gap: 1rem; }
+  .social-links a {
+    font-size: 0.78rem;
+    color: rgba(255,255,255,0.4);
+    text-decoration: none;
+    transition: color 0.2s;
+  }
+  .social-links a:hover { color: var(--gold-light); }
+
+  /* ── ANIMATIONS ── */
+  @keyframes fadeUp {
+    from { opacity: 0; transform: translateY(28px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+  .fade-up { animation: fadeUp 0.7s ease both; }
+  .fade-up-2 { animation: fadeUp 0.7s 0.12s ease both; }
+  .fade-up-3 { animation: fadeUp 0.7s 0.24s ease both; }
+  .fade-up-4 { animation: fadeUp 0.7s 0.36s ease both; }
+
+  /* ── RESPONSIVE ── */
+  @media (max-width: 900px) {
+    .hero { grid-template-columns: 1fr; }
+    .hero-visual { display: none; }
+    .hero-text { padding: 5rem 6% 4rem; }
+    section { padding: 5rem 6%; }
+    .intro-grid { grid-template-columns: 1fr; }
+    .service-block { grid-template-columns: 1fr; }
+    .service-block.reverse { direction: ltr; }
+    .service-panel-accent { display: none; }
+    .bouquet-grid { grid-template-columns: 1fr 1fr; }
+    .about-inner { grid-template-columns: 1fr; }
+    .decision-grid { grid-template-columns: 1fr; }
+    .decision-col { border-right: none; border-bottom: 1px solid var(--border-soft); }
+    .decision-col:last-child { border-bottom: none; }
+    nav { padding: 0 1.5rem; }
+    .nav-links { display: none; }
+    footer { padding: 3rem 6% 2rem; }
+    .footer-top { flex-direction: column; }
+  }
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav>
+  <a class="nav-logo" href="#top">The Money <span>Therapist©</span></a>
+  <ul class="nav-links">
+    <li><a href="#services">Services</a></li>
+    <li><a href="#about">About</a></li>
+    <li><a href="#decide">Which is for me?</a></li>
+    <li><a href="https://research.investnaira.com" target="_blank">Blog</a></li>
+  </ul>
+  <a class="nav-cta" href="https://selar.com/m/themoneytherapist" target="_blank">Book a Session</a>
+</nav>
+
+<!-- HERO -->
+<section class="hero" id="top" style="padding:0;">
+  <div class="hero-text">
+    <p class="hero-eyebrow fade-up">#TheMoneyTherapist</p>
+    <h1 class="fade-up-2">Your money story<br>deserves a <em>safe space</em><br>to be heard.</h1>
+    <p class="hero-sub fade-up-3">Olubunmi Samuel-Adeyemi walks with busy professionals to help them think, plan, and act on their financial lives — one honest conversation at a time.</p>
+    <div class="hero-actions fade-up-4">
+      <a href="#services" class="btn-primary">Explore the Services</a>
+      <a href="#decide" class="btn-outline">Help me choose</a>
+    </div>
+  </div>
+  <div class="hero-visual">
+    <div class="hero-card">
+      <p class="hero-card-quote">"No one should feel confined to a socio-economic level they are not happy about."</p>
+      <div class="hero-card-attr">
+        <div class="avatar">O</div>
+        <div class="attr-text">
+          <p>Olubunmi Samuel-Adeyemi</p>
+          <p>#TheMoneyTherapist · since 2015</p>
+        </div>
+      </div>
+      <div class="hero-stats">
+        <div class="stat-item">
+          <div class="stat-num">4,000+</div>
+          <div class="stat-label">Professionals trained</div>
+        </div>
+        <div class="stat-item">
+          <div class="stat-num">10+</div>
+          <div class="stat-label">Years of practice</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- INTRO -->
+<section class="intro" id="intro">
+  <p class="section-tag">Who this is for</p>
+  <h2 class="section-title">You already know something has to change.</h2>
+  <p class="section-lead">The knowledge is there. The stirring is there. What's missing is a structured, confidential space to connect the dots between what you know and what you actually do.</p>
+  <div class="intro-grid">
+    <div class="intro-card">
+      <div class="intro-card-icon">💭</div>
+      <h3>You need to clear your head</h3>
+      <p>Your thoughts are busy but scattered. You need a neutral, honest sounding board who will validate where you're right and challenge where you're not.</p>
+    </div>
+    <div class="intro-card">
+      <div class="intro-card-icon">🗺</div>
+      <h3>You know the goal, not the path</h3>
+      <p>You have goals — paying off debt, starting a business, getting a promotion — but you don't know where to begin or how to stay accountable.</p>
+    </div>
+    <div class="intro-card">
+      <div class="intro-card-icon">🚶‍♀️</div>
+      <h3>You need someone to walk with you</h3>
+      <p>You've done the planning. Now you need a confidential partner who checks in, keeps you on track, and helps with the tools along the way.</p>
+    </div>
+  </div>
+</section>
+
+<!-- SERVICES -->
+<section class="services" id="services">
+  <p class="section-tag">The Three Services</p>
+  <h2 class="section-title">Choose the session that fits where you are right now.</h2>
+  <p class="section-lead">Each service is designed for a different stage of your journey — from clearing your mind to executing your plan.</p>
+
+  <!-- ThinkWithMe -->
+  <div class="service-block">
+    <div class="service-panel service-panel-main">
+      <div class="service-num">01</div>
+      <span class="service-badge">1 Hour · Single Session</span>
+      <h2>ThinkWithMe©</h2>
+      <p class="tagline">Clarity before commitment</p>
+      <ul class="service-checklist">
+        <li>You're very busy — 1 hour is all you can manage right now</li>
+        <li>You need to clear your head and work through your thoughts</li>
+        <li>You feel safer talking to a neutral, trusted stranger</li>
+        <li>You need honest assessment and validation where you're right</li>
+        <li>You want to check if your dream is worth building an empire around</li>
+        <li>You'd like to understand why your spending patterns persist despite the harm they cause</li>
+      </ul>
+      <a class="service-link" href="https://selar.com/m/themoneytherapist" target="_blank">Book ThinkWithMe →</a>
+    </div>
+    <div class="service-panel service-panel-accent">
+      <p class="accent-quote">"Sometimes you just need someone to hold the space while you find your own clarity."</p>
+      <div class="accent-detail-item">
+        <div class="accent-detail-icon">⏱</div>
+        <p class="accent-detail-text">Just 1 hour. No long commitments required.</p>
+      </div>
+      <div class="accent-detail-item">
+        <div class="accent-detail-icon">🔒</div>
+        <p class="accent-detail-text">Fully confidential. A safe space to speak freely.</p>
+      </div>
+      <div class="accent-detail-item">
+        <div class="accent-detail-icon">🎯</div>
+        <p class="accent-detail-text">Walk away with honest feedback and a clearer head.</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- PlanWithMe -->
+  <div class="service-block reverse gold-accent alt">
+    <div class="service-panel service-panel-main">
+      <div class="service-num">02</div>
+      <span class="service-badge">30 Min Sessions · Structured Plan</span>
+      <h2>PlanWithMe©</h2>
+      <p class="tagline">From knowing to doing</p>
+      <ul class="service-checklist">
+        <li>You know your goals but are unsure where to begin</li>
+        <li>You can only spare 30 minutes at a time due to work and family</li>
+        <li>You want to plan privately before revealing a new version of yourself</li>
+        <li>You desire a promotion and want to chart a concrete path toward it</li>
+        <li>You have income and want to build a business around your other skills</li>
+        <li>You're in debt and need a manageable plan to start paying it down</li>
+        <li>You have stirrings in your heart that need help articulating</li>
+        <li>Ignorance is no longer bliss — you must now do what you know</li>
+      </ul>
+      <a class="service-link gold" href="https://selar.com/m/themoneytherapist" target="_blank">Book PlanWithMe →</a>
+    </div>
+    <div class="service-panel service-panel-accent gold-accent">
+      <div class="service-num" style="color:rgba(197,151,58,0.2)">02</div>
+      <p class="accent-quote" style="color:var(--forest);">"The distance between knowing and doing is where most dreams quietly die. Let's close that gap."</p>
+      <div class="accent-detail-item">
+        <div class="accent-detail-icon" style="background:rgba(197,151,58,0.12)">📅</div>
+        <p class="accent-detail-text" style="color:var(--text-mid)">30-minute sessions that fit around your real life.</p>
+      </div>
+      <div class="accent-detail-item">
+        <div class="accent-detail-icon" style="background:rgba(197,151,58,0.12)">🏗</div>
+        <p class="accent-detail-text" style="color:var(--text-mid)">Structured planning to move from intention to action.</p>
+      </div>
+      <div class="accent-detail-item">
+        <div class="accent-detail-icon" style="background:rgba(197,151,58,0.12)">🌱</div>
+        <p class="accent-detail-text" style="color:var(--text-mid)">Help articulating what's already stirring in your heart.</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- WalkWithMe -->
+  <div class="service-block">
+    <div class="service-panel service-panel-main">
+      <div class="service-num">03</div>
+      <span class="service-badge">6 Sessions · 90-Day Accountability</span>
+      <h2>WalkWithMe©</h2>
+      <p class="tagline">Accountability in motion</p>
+      <ul class="service-checklist">
+        <li>You have already documented your plans and are ready to execute</li>
+        <li>You follow through more consistently when accountable to someone</li>
+        <li>Meeting every 2 weeks (6 times over 90 days) is the ideal rhythm for you</li>
+        <li>You need occasional help navigating technology tools</li>
+        <li>You need a confidential second eye as you advance through your plans</li>
+      </ul>
+      <a class="service-link" href="https://selar.com/m/themoneytherapist" target="_blank">Book WalkWithMe →</a>
+    </div>
+    <div class="service-panel service-panel-accent">
+      <p class="accent-quote">"Plans only work when someone walks alongside you to make sure you keep walking."</p>
+      <div class="accent-detail-item">
+        <div class="accent-detail-icon">🗓</div>
+        <p class="accent-detail-text">6 check-ins across 90 days — just enough to keep momentum.</p>
+      </div>
+      <div class="accent-detail-item">
+        <div class="accent-detail-icon">👁</div>
+        <p class="accent-detail-text">A confidential second eye reviewing your progress.</p>
+      </div>
+      <div class="accent-detail-item">
+        <div class="accent-detail-icon">🛠</div>
+        <p class="accent-detail-text">Tech tool support available along the way.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FULL BOUQUET -->
+<section class="bouquet" id="bouquet">
+  <p class="section-tag">Premium Access</p>
+  <h2 class="section-title" style="max-width:600px;">The TMT Full Bouquet — for those who want it all.</h2>
+  <p class="section-lead" style="max-width:580px;">Reserved for those who think at a certain altitude and need direct, priority access to Olubunmi's wisdom and perspective.</p>
+  <div class="bouquet-grid">
+    <div class="bouquet-card">
+      <div class="bouquet-card-icon">📞</div>
+      <h3>Phone-call level access</h3>
+      <p>Skip the queue and reach Olubunmi directly. No waiting, no bottlenecks — just timely wisdom when you need it.</p>
+    </div>
+    <div class="bouquet-card">
+      <div class="bouquet-card-icon">🔒</div>
+      <h3>Confidential high-altitude thinking</h3>
+      <p>Discuss sensitive, complex matters with someone whose thinking operates at the level yours does.</p>
+    </div>
+    <div class="bouquet-card">
+      <div class="bouquet-card-icon">✍️</div>
+      <h3>Article humanization</h3>
+      <p>AI-generated articles refined to sound authentically like you — indistinguishable from your own voice. (Invoiced separately.)</p>
+    </div>
+    <div class="bouquet-card">
+      <div class="bouquet-card-icon">🎟</div>
+      <h3>High-profile event accompaniment</h3>
+      <p>Olubunmi's first-hand perspective at ultra high-profile events where you need a trusted, sharp companion. (Expenses borne by you.)</p>
+    </div>
+    <div class="bouquet-card">
+      <div class="bouquet-card-icon">🧠</div>
+      <h3>Unbiased recruitment support</h3>
+      <p>Olubunmi helps you interview potential employees so your hiring decisions are clear, objective, and excellent. (Invoiced separately.)</p>
+    </div>
+    <div class="bouquet-card" style="background:rgba(197,151,58,0.12); border-color:rgba(197,151,58,0.25);">
+      <div class="bouquet-card-icon" style="background:rgba(197,151,58,0.2)">✨</div>
+      <h3 style="color:var(--gold-light)">The Full Bouquet is for you if…</h3>
+      <p>You think at altitude. You handle confidential matters. You value direct access to wisdom. You don't want to wait in line.</p>
+    </div>
+  </div>
+  <div class="bouquet-cta">
+    <a href="https://selar.com/m/themoneytherapist" target="_blank">Enquire about the Full Bouquet</a>
+    <p class="bouquet-note">Priority access · Custom pricing · Direct engagement with Olubunmi</p>
+  </div>
+</section>
+
+<!-- DECISION HELPER -->
+<section class="decision" id="decide">
+  <p class="section-tag">Which service is right for me?</p>
+  <h2 class="section-title">Start here — find your fit.</h2>
+  <p class="section-lead">Not sure which service suits where you are today? Use this simple guide to situate yourself.</p>
+  <div class="decision-grid">
+    <div class="decision-col">
+      <div class="decision-col-sub">ThinkWithMe©</div>
+      <div class="decision-col-head">Choose this if you…</div>
+      <div style="margin-top:1.25rem; display:flex; flex-wrap:wrap; gap:0.4rem;">
+        <span class="decision-pill">Have only 1 hour</span>
+        <span class="decision-pill">Need to vent & reflect</span>
+        <span class="decision-pill">Want validation</span>
+        <span class="decision-pill">Testing a dream</span>
+        <span class="decision-pill">Breaking a cycle</span>
+        <span class="decision-pill">No time to plan yet</span>
+      </div>
+      <a class="decision-link" href="https://selar.com/m/themoneytherapist" target="_blank">Book ThinkWithMe →</a>
+    </div>
+    <div class="decision-col">
+      <div class="decision-col-sub">PlanWithMe©</div>
+      <div class="decision-col-head">Choose this if you…</div>
+      <div style="margin-top:1.25rem; display:flex; flex-wrap:wrap; gap:0.4rem;">
+        <span class="decision-pill">Know your goals</span>
+        <span class="decision-pill">Need a clear path</span>
+        <span class="decision-pill">In debt & overwhelmed</span>
+        <span class="decision-pill">Busy but motivated</span>
+        <span class="decision-pill">Planning privately</span>
+        <span class="decision-pill">Ready to build</span>
+      </div>
+      <a class="decision-link" href="https://selar.com/m/themoneytherapist" target="_blank">Book PlanWithMe →</a>
+    </div>
+    <div class="decision-col">
+      <div class="decision-col-sub">WalkWithMe©</div>
+      <div class="decision-col-head">Choose this if you…</div>
+      <div style="margin-top:1.25rem; display:flex; flex-wrap:wrap; gap:0.4rem;">
+        <span class="decision-pill">Have a written plan</span>
+        <span class="decision-pill">Need accountability</span>
+        <span class="decision-pill">Want 90-day support</span>
+        <span class="decision-pill">Biweekly check-ins</span>
+        <span class="decision-pill">Need a second eye</span>
+        <span class="decision-pill">Ready to execute</span>
+      </div>
+      <a class="decision-link" href="https://selar.com/m/themoneytherapist" target="_blank">Book WalkWithMe →</a>
+    </div>
+  </div>
+</section>
+
+<!-- ABOUT -->
+<section class="about" id="about">
+  <div class="about-inner">
+    <div class="about-visual">
+      <div class="about-card">
+        <div class="about-card-name">Olubunmi Samuel-Adeyemi</div>
+        <div class="about-card-title">#THEMONEYTHERAPIST · LIMER PERSONAL FINANCE · SINCE 2015</div>
+        <p class="about-card-body">Since 2015, Olubunmi has been facilitating financial literacy and money therapy sessions for business and career professionals across Nigeria and globally. Her overriding passion is to end world poverty — one money conversation at a time.</p>
+        <p class="about-card-body" style="margin-top:1rem;">She has trained over 4,000 young professionals in the art of managing personal and family finances, and authored <em>Hello! My Name is Money: a blind date with money.</em></p>
+        <div class="about-badges">
+          <span class="badge">SEC Financial Literacy Committee</span>
+          <span class="badge">SYLFF Fellow 2021 · Tokyo Foundation</span>
+          <span class="badge">PhD Candidate · African Studies</span>
+        </div>
+      </div>
+    </div>
+    <div class="about-text">
+      <p class="section-tag">About Olubunmi</p>
+      <h2 class="section-title">Combining financial expertise with the wisdom to listen.</h2>
+      <p class="section-lead">Olubunmi holds a BSc in Mathematical Science, a PGD in Finance from Covenant University, and an MA in African Sustainable Communities. She is a nominated member of the Securities and Exchange Commission's Financial Literacy Technical Committee.</p>
+      <p class="section-lead">Her work combines rigorous field research with deeply personal therapy sessions — because money is never just about numbers.</p>
+      <div class="about-highlight">
+        <p>"Freedom doesn't come from working harder. It comes from building better systems — and understanding the beliefs that have been running your finances all along."</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- BLOG BRIDGE -->
+<div class="blog-section" id="blog">
+  <div class="blog-inner">
+    <div class="blog-text">
+      <p class="section-tag">Research & Insights</p>
+      <h2>Read the Money Therapist Blog</h2>
+      <p>Articles, research, and insights published in national dailies and read globally. Sit with what you've learnt before you decide what to do next.</p>
+    </div>
+    <div class="blog-cta-group">
+      <a href="https://research.investnaira.com" target="_blank" class="btn-primary">Visit the Blog</a>
+      <a href="https://selar.com/m/themoneytherapist" target="_blank" class="btn-outline">Book a Session</a>
+    </div>
+  </div>
+</div>
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-top">
+    <div class="footer-brand">
+      <p>The Money Therapist©</p>
+      <p>Providing money therapy and financial literacy to business and career professionals since 2015. Nigeria and globally.</p>
+    </div>
+    <div class="footer-links">
+      <h4>Services</h4>
+      <ul>
+        <li><a href="#services">ThinkWithMe©</a></li>
+        <li><a href="#services">PlanWithMe©</a></li>
+        <li><a href="#services">WalkWithMe©</a></li>
+        <li><a href="#bouquet">TMT Full Bouquet</a></li>
+      </ul>
+    </div>
+    <div class="footer-links">
+      <h4>Connect</h4>
+      <ul>
+        <li><a href="https://research.investnaira.com" target="_blank">Blog</a></li>
+        <li><a href="https://selar.com/m/themoneytherapist" target="_blank">Book a Session</a></li>
+        <li><a href="https://www.instagram.com/olubunmi.themoneytherapist/" target="_blank">Instagram</a></li>
+        <li><a href="https://www.linkedin.com/in/itsolubunmi/" target="_blank">LinkedIn</a></li>
+      </ul>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <p>© 2025 The Money Therapist · Olubunmi Samuel-Adeyemi · LIMER Personal Finance</p>
+    <div class="social-links">
+      <a href="https://www.instagram.com/olubunmi.themoneytherapist/" target="_blank">Instagram</a>
+      <a href="https://www.linkedin.com/in/itsolubunmi/" target="_blank">LinkedIn</a>
+      <a href="https://selar.com/m/themoneytherapist" target="_blank">Selar Store</a>
+    </div>
+  </div>
+</footer>
+
+</body>
+</html>
